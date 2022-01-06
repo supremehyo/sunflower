@@ -1,3 +1,8 @@
+해당 프로젝트는 구글의 Sunflower 예제입니다.
+여러가지 jetpack 사용법을 이해하기에 좋습니다. 
+Hilt, Databinding , LiveData , 코루틴(Flow 등), Navigation 등에 대해서 다룹니다. 
+
+
 Android Sunflower
 =================
 
