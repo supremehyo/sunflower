@@ -1,4 +1,4 @@
-해당 프로젝트는 구글의 Sunflower 예제입니다.
+해당 프로젝트는 구글의 Sunflower 예제입니다. 개인적으로 공부하기 위해 fork 하고 코드를 분석하며 주석을 달고 있습니다.
 여러가지 jetpack 사용법을 이해하기에 좋습니다. 
 Hilt, Databinding , LiveData , 코루틴(Flow 등), Navigation 등에 대해서 다룹니다. 
 
