@@ -19,12 +19,7 @@ package com.google.samples.apps.sunflower.data
 import javax.inject.Inject
 import javax.inject.Singleton
 
-/**
- * Repository module for handling data operations.
- *
- * Collecting from the Flows in [PlantDao] is main-safe.  Room supports Coroutines and moves the
- * query execution off of the main thread.
- */
+//DAO로 부터 데이터를 불러오는 함수가 있다.
 @Singleton
 class PlantRepository @Inject constructor(private val plantDao: PlantDao) {
 

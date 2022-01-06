@@ -33,10 +33,17 @@ import java.util.Calendar
  */
 @Entity(
     tableName = "garden_plantings",
+    //여기서는 외래키 설정이 있다.
+    //Plant라는 Entity와 관계를 맺을거고 parentColums는 상위 항목의
+    //기본 키 열 이름으로 설정(Plant Entity의 id)하고 childColumns에는
+    //현재의 Entity인 GardenPlanting의 plant_id 키를 설정한다.
+    //이때 parentColums와 childColumns 개수는 동일해야한다.
     foreignKeys = [
         ForeignKey(entity = Plant::class, parentColumns = ["id"], childColumns = ["plant_id"])
     ],
-    indices = [Index("plant_id")]
+    indices = [Index("plant_id")]//indicies 는인덱싱을 해서
+    // SELECT 쿼리의 속도를 높여주는 역할을 한다.
+    // plant_id 로 인덱싱을 설정하였다.
 )
 data class GardenPlanting(
     @ColumnInfo(name = "plant_id") val plantId: String,

@@ -16,6 +16,7 @@
 
 package com.google.samples.apps.sunflower.api
 
+import androidx.databinding.library.BuildConfig
 import com.google.samples.apps.sunflower.BuildConfig
 import com.google.samples.apps.sunflower.data.UnsplashSearchResponse
 import okhttp3.OkHttpClient

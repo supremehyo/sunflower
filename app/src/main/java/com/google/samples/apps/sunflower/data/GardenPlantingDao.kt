@@ -39,12 +39,14 @@ interface GardenPlantingDao {
      * the object mapping.
      */
     @Transaction
+    //@Transaction 을 활용하여 메서드의 질의들이 하나의 트랜잭션 안에서 실행하게 구현되어있다.
+    //여기서는 두 개의 테이블에서 쿼리하는데 그것들을 하나의 트랜잭션에서 실행시키게 된다.
     @Query("SELECT * FROM plants WHERE id IN (SELECT DISTINCT(plant_id) FROM garden_plantings)")
     fun getPlantedGardens(): Flow<List<PlantAndGardenPlantings>>
 
     @Insert
     suspend fun insertGardenPlanting(gardenPlanting: GardenPlanting): Long
 
-    @Delete
+    @Delete//@Delete는 Primary Key 로 매칭하여 알아서 해당 객체를 데이터베이스에서 삭제해준다.
     suspend fun deleteGardenPlanting(gardenPlanting: GardenPlanting)
 }

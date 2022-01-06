@@ -22,10 +22,11 @@ import androidx.room.PrimaryKey
 import java.util.Calendar
 import java.util.Calendar.DAY_OF_YEAR
 
-@Entity(tableName = "plants")
+
+@Entity(tableName = "plants") // 이렇게 테이블 이름을 지정
 data class Plant(
-    @PrimaryKey @ColumnInfo(name = "id") val plantId: String,
-    val name: String,
+    @PrimaryKey @ColumnInfo(name = "id") val plantId: String, //고유 id 지정
+    val name: String, // 컬럼 선언
     val description: String,
     val growZoneNumber: Int,
     val wateringInterval: Int = 7, // how often the plant should be watered, in days

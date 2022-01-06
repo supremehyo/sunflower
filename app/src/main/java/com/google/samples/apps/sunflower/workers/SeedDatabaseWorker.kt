@@ -28,6 +28,13 @@ import com.google.samples.apps.sunflower.data.Plant
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
+//WorkManager에 대해 간략히 설명하자면,
+// 지연 가능한 비동기 작업을 쉽게 예약할 수 있는 API로,
+// 지연 가능한 비동기 작업은 앱이 종료되거나 기기가 다시 시작되더라도
+// 실행될 것으로 예상되는 작업이다.
+
+//SeedDatabaseWorker는 비동기 백그라운드로 assets에 있는
+// json 데이터를 데이터베이스에 저장하는 작업을 위해 한 번만 실행되게 사용되었다.
 class SeedDatabaseWorker(
         context: Context,
         workerParams: WorkerParameters

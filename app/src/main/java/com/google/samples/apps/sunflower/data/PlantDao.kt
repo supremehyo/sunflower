@@ -25,9 +25,9 @@ import kotlinx.coroutines.flow.Flow
 /**
  * The Data Access Object for the Plant class.
  */
-@Dao
+@Dao // @Dao를 붙여줌으로써 Dao 인터페이스임을 알려준다.
 interface PlantDao {
-    @Query("SELECT * FROM plants ORDER BY name")
+    @Query("SELECT * FROM plants ORDER BY name") //쿼리문을 사용해서 sql 처럼 사용
     fun getPlants(): Flow<List<Plant>>
 
     @Query("SELECT * FROM plants WHERE growZoneNumber = :growZoneNumber ORDER BY name")
@@ -36,6 +36,6 @@ interface PlantDao {
     @Query("SELECT * FROM plants WHERE id = :plantId")
     fun getPlant(plantId: String): Flow<Plant>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(plants: List<Plant>)
+    @Insert(onConflict = OnConflictStrategy.REPLACE) // 충돌전략 관리
+    suspend fun insertAll(plants: List<Plant>)// 코루틴에서 사용할 수 있게 suspend 를 적어줌
 }
