@@ -31,6 +31,8 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+//https://youngest-programming.tistory.com/549?category=898095
+
 /**
  * The ViewModel for [PlantListFragment].
  */

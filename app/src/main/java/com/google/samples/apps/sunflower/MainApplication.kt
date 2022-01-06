@@ -17,10 +17,11 @@
 package com.google.samples.apps.sunflower
 
 import android.app.Application
+import androidx.databinding.library.BuildConfig
 import androidx.work.Configuration
 import dagger.hilt.android.HiltAndroidApp
 
-@HiltAndroidApp
+@HiltAndroidApp//힐트를 사용하는 첫번째 시작점
 class MainApplication : Application(), Configuration.Provider {
     override fun getWorkManagerConfiguration(): Configuration =
                 Configuration.Builder()

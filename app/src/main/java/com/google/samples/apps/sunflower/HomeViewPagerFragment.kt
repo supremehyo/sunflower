@@ -37,23 +37,33 @@ class HomeViewPagerFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        // 데이터바인딩 세팅
+        // FragmentViewPagerBinding / XML은 <layout>으로 데이터바인딩 처리
         val binding = FragmentViewPagerBinding.inflate(inflater, container, false)
         val tabLayout = binding.tabs
         val viewPager = binding.viewPager
 
+        //어뎁터 연결
         viewPager.adapter = SunflowerPagerAdapter(this)
 
+        // 탭 레이아웃 아이콘 및 텍스트 세팅 (TabLayoutMediator 는 처음 봤다.)
+        // https://developer.android.com/training/animation/vp2-migration?hl=ko#tablayout 와 연계된다.
         // Set the icon and text for each tab
+        //TabLayoutMediator 은 viewpager2와 tablayout 을 동시에 통합해서 만들 수 있게 해준다.
+        //그러나 xml 상에서 같은 동일한 수준에 선언 되어있어야한다.
+
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.setIcon(getTabIcon(position))
             tab.text = getTabTitle(position)
         }.attach()
-
+        // 툴바 세팅
         (activity as AppCompatActivity).setSupportActionBar(binding.toolbar)
 
+        // 데이터바인딩과 초기화 작업을 한후 데이터바인딩 클래스에는 상응하는 레이아웃 파일의
+        // 루트 뷰에 관한 직접 참조를 제공하는 binding.root 를 반환해준다.
         return binding.root
     }
-
+    // 아이콘 리소스 가져오기
     private fun getTabIcon(position: Int): Int {
         return when (position) {
             MY_GARDEN_PAGE_INDEX -> R.drawable.garden_tab_selector
@@ -61,7 +71,7 @@ class HomeViewPagerFragment : Fragment() {
             else -> throw IndexOutOfBoundsException()
         }
     }
-
+    // 타이틀 텍스트 가져오기
     private fun getTabTitle(position: Int): String? {
         return when (position) {
             MY_GARDEN_PAGE_INDEX -> getString(R.string.my_garden_title)

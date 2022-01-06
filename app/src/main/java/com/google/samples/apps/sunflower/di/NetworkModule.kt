@@ -24,6 +24,11 @@ import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
+//InstallIn이란? Hilt가 생성하는 DI 컨테이너에 어떤 모듈을 사용할 지 가리킨다.
+//즉 SingletonComponent 로 명시해줬으니 SingletonComponent에서만 hilt 가 쓰인다는것
+//Module을 쓸때만 사용해주면 되는듯 하다.
+//그러나 SingletonComponent 하위에 FragmentComponet 가 있다면 FragmentComponet에서도 사용이 가능하다.
+
 @Module
 class NetworkModule {
 

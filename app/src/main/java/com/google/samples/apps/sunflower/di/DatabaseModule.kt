@@ -27,10 +27,12 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
-@InstallIn(SingletonComponent::class)
+@InstallIn(SingletonComponent::class) //Hilt가 생성하는 DI컨테이너에 어떤 모듈을 사용할지 가리킨다
 @Module
 class DatabaseModule {
-
+//SingletonComponent 로 하는 이유를 생각해보면 DB, 서버API 통신 객체는 여러 하나의 클래스에
+// 종속되어 있는게 아닌 여러 Repository에서 사용할 수 있고,
+// 어디서든 접근이 가능해야 하므로 Singleton 컴포넌트로 작성을 합니다.
     @Singleton
     @Provides
     fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase {

@@ -25,9 +25,13 @@ import com.google.samples.apps.sunflower.data.UnsplashRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
+// Hilt가 적용된 ViewModel 이다.
 
-@HiltViewModel
-class GalleryViewModel @Inject constructor(
+@HiltViewModel // HiltViewModel 은 viewmodel 전용 어노테이션
+class GalleryViewModel @Inject constructor( //@Inject constructor이란?
+    //생성자 삽입 방법으로 클래스의 인스턴스를 제공하는 방법을 Hilt에 알려주게 된다
+    //그러니까 HiltViewModel를 붙여서 쓰면 힐트가 관장하는데 힐트가 어떤 생성자를 가지고
+    //이 클래스의 인스턴스를 만드는지 알아야하는데 그걸 알려주는 방식이 Inject 라는것
     private val repository: UnsplashRepository
 ) : ViewModel() {
     private var currentQueryValue: String? = null

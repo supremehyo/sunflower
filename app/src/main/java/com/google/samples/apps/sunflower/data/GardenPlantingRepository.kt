@@ -19,8 +19,8 @@ package com.google.samples.apps.sunflower.data
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
-class GardenPlantingRepository @Inject constructor(
+@Singleton // 싱글톤으로 어디서 여러번 호출해도 같은 객체로 인식하도록 집어넣어진다.
+class GardenPlantingRepository @Inject constructor(//Inject는 힐트가 생성자를 알아볼 수 있도록 명시
     private val gardenPlantingDao: GardenPlantingDao
 ) {
 

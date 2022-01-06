@@ -22,7 +22,8 @@ import androidx.databinding.DataBindingUtil.setContentView
 import com.google.samples.apps.sunflower.databinding.ActivityGardenBinding
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+@AndroidEntryPoint //최상단에서 HiltAndroidApp 를 해줬으면 힐트를 사용하려는 클래스에는 AndroidEntryPoint
+//를 추가해줘야한다.
 class GardenActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
